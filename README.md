@@ -1,23 +1,36 @@
-# Unicorn Project Management (UPM)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-*(Dashboard de Consultoria em Next.js com foco em UX/UI e Performance)*
+## Getting Started
 
-## Visão Geral
+First, run the development server:
 
-Este projeto serve como uma **prova de conceito** para o desenvolvimento de um **Dashboard de Gestão de Projetos Unicórnio (UPM)**, utilizando o **Next.js** e **TypeScript**.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-O foco está em demonstrar a capacidade de traduzir a experiência de **Design Thinking/UX/UI** em uma aplicação Front-end de alta performance. Ele consome a API C# (COO) ou uma mock API, visualizando o status estratégico dos projetos e configurações de clientes. Ele é um exemplo prático de como entrego **produtos digitais intuitivos** e com **excelente performance (SEO/Core Web Vitals)**.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Destaques Técnicos e de Produto
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-| Habilidade                | Feature e Implementação                                                                                                                                     |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Next.js Performance**   | Utilização de **Server-Side Rendering (SSR)** e **Static Site Generation (SSG)** para otimização de velocidade de carregamento e SEO.                       |
-| **UX/UI e Design**        | Aplicação de princípios de **UX/UI** e um **Design System** (e.g., Tailwind CSS ou customizado) com foco na experiência do usuário e criação de dark mode.  |
-| **Robustez do Código**    | Uso rigoroso de **TypeScript** em toda a aplicação e tipagem de chamadas de API para garantir a segurança e manutenibilidade do código.                     |
-| **Integração Full Stack** | Consumo assíncrono e eficiente da **API C# (COO)** para visualização do status de deploy e saúde dos serviços.                                              |
-| **Componentização**       | Criação de componentes reutilizáveis (gráficos de status, cartões de projetos) que refletem o padrão de código limpo do React.                              |
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Valor Adicionado ao Portfólio
+## Learn More
 
-Este projeto demonstra minha visão de produto completa, garantindo que a **experiência do usuário (UX)** não seja um gargalo. O uso do Next.js não só assegura um **Front-end moderno e interativo**, mas também demonstra a preocupação com a **Performance Web** (velocidade e SEO), que é crítica para o sucesso de qualquer produto digital na sua função de Fundador/Consultor.
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
