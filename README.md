@@ -1,157 +1,143 @@
 # Unicorn Project Management (UPM)
 
-**Dashboard de Consultoria em Next.js com foco em UX, Performance e Arquitetura Front-end**
+**Dashboard de Consultoria em Next.js — Gestão de Projetos, Métricas e KPIs**
 
-Bem-vindo ao **Unicorn Project Management (UPM)** — um projeto desenvolvido como **prova de conceito** e peça central do meu **portfólio profissional**, demonstrando minha atuação de ponta-a-ponta:
-desde **Design Thinking / UX/UI**, passando por **arquitetura front-end**, até **integração full stack** com uma API em .NET C# (COO).
-
-Este Dashboard foi desenvolvido com **Next.js**, **TypeScript** e um **Design System modular**, reforçando minha capacidade de entregar produtos digitais **performáticos, intuitivos e escaláveis**.
+> Projeto desenvolvido como **prova de conceito** e peça central do portfólio profissional, demonstrando atuação de ponta-a-ponta: desde **Design Thinking / UX/UI**, passando por **arquitetura front-end**, até **integração full stack** com uma API em .NET C# (em produção).
 
 ---
 
-## Objetivo do Projeto
+## ✦ Preview
 
-O UPM demonstra como aplico princípios de **experiência do usuário**, **engenharia front-end moderna**, e **boas práticas de desenvolvimento** para transformar complexidade técnica em uma interface clara, performática e orientada a decisões estratégicas.
-
-Este projeto evidencia:
-
-* Capacidade de transformação de requisitos em **produto digital real**
-* Excelente domínio de **Next.js (App Router)**
-* Manutenção de **código limpo, tipado e escalável**
-* Criação de experiência consistente via **Design System**
-* Atenção rigorosa a **Core Web Vitals / SEO / Performance Web**
+![Dashboard UPM](public/preview.png)
 
 ---
 
-## Configuração Inicial do Projeto
+## Stack
 
-O boilerplate do projeto foi criado com:
-
-```
-npx create-next-app@latest UPM-Frontend-NEXTJS --ts --app --tailwind --use-npm
-```
-
-Isso garante:
-
-* **Next.js 14+ com App Router**
-* **TypeScript** habilitado
-* **Tailwind CSS** configurado
-* ESLint padronizado
-* Ambiente preparado para **SSR, SSG e Server Actions**
+| Tecnologia | Uso |
+|---|---|
+| **Next.js 14** (App Router) | Framework principal — SSR, Server Components |
+| **TypeScript** | Tipagem forte em toda a base de código |
+| **Tailwind CSS** | Estilização utilitária |
+| **Recharts** | Visualizações e gráficos interativos |
+| **JSON Server** | API fake para desenvolvimento local |
+| **Lucide React** | Ícones consistentes |
+| **clsx + tailwind-merge** | Utilitários para classes condicionais |
 
 ---
 
-## Arquitetura de Pastas Sugerida
-
-Uma arquitetura pensada para **escalabilidade**, **componentização** e **clareza**:
+## Estrutura de Pastas
 
 ```
 UPM-Frontend-NEXTJS/
 │
-├── app/                       # App Router: rotas, layouts e páginas
-│   ├── (dashboard)/           # Módulo principal autenticado
-│   ├── api/                   # Rotas internas (se necessário)
-│   ├── layout.tsx
-│   ├── page.tsx
+├── src/
+│   ├── app/                         # App Router (Next.js 14)
+│   │   ├── layout.tsx               # Layout raiz com Sidebar
+│   │   ├── page.tsx                 # Dashboard — Visão Geral
+│   │   └── (dashboard)/
+│   │       ├── projects/page.tsx    # Lista de Projetos
+│   │       ├── metrics/page.tsx     # Métricas & KPIs
+│   │       └── team/page.tsx        # Time e Utilização
+│   │
+│   ├── components/
+│   │   ├── ui/                      # Design System base
+│   │   │   ├── Badge.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── KpiCard.tsx
+│   │   │   ├── ProgressBar.tsx
+│   │   │   └── Sidebar.tsx
+│   │   ├── charts/                  # Componentes de visualização
+│   │   │   ├── RevenueChart.tsx
+│   │   │   └── SatisfactionChart.tsx
+│   │   ├── project/                 # Componentes de domínio
+│   │   │   └── ProjectCard.tsx
+│   │   └── feedback/                # Loaders e estados de UI
+│   │       └── Skeleton.tsx
+│   │
+│   └── core/
+│       ├── types/index.ts           # Tipagens globais (Project, KPI, Task...)
+│       ├── services/api.ts          # Camada de serviço — fetch centralizado
+│       └── utils/index.ts           # Formatadores e helpers
 │
-├── components/
-│   ├── ui/                    # Componentes do Design System (botões, inputs, cards)
-│   ├── charts/                # Gráficos e visualizações
-│   ├── project/               # Componentes específicos do domínio de projetos
-│   └── feedback/              # Loaders, skeletons, mensagens, toasts
+├── db/
+│   └── db.json                      # Mock data (JSON Server)
 │
-├── core/
-│   ├── hooks/                 # React hooks customizados
-│   ├── utils/                 # Funções auxiliares
-│   ├── types/                 # Tipagens globais e modelos de API
-│   └── services/              # Handlers de API (fetch/axios)
-│
-├── styles/
-│   ├── globals.css
-│   └── tailwind.css
-│
-├── public/                    # Ícones, imagens, manifest, etc.
-│
-├── .env.local                 # Variáveis de ambiente (ex: URL da API COO)
-├── tsconfig.json
+├── .env.local.example               # Variáveis de ambiente necessárias
+├── .github/workflows/ci.yml         # Pipeline CI: lint + typecheck + build
 └── package.json
 ```
 
-Essa organização facilita:
-
-* Reutilização
-* Escalabilidade
-* Separação clara entre UI, lógica e dados
-* Evolução futura para micro-frontends ou módulos isolados
-
 ---
 
-## Destaques Técnicos e de Produto
+## Como Rodar Localmente
 
-| Habilidade                       | Feature e Implementação                                                                         |
-| -------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Next.js Performance**          | Uso de SSR/SSG, Server Components, Otimização Automática, Roteamento App Router.                |
-| **Design System & UX/UI**        | Tailwind + tokens + componentes reutilizáveis, dark mode, acessibilidade e consistência visual. |
-| **Código Robusto**               | Tipagem forte com TypeScript, modelos de API, padrões de limpeza, isolação de serviços.         |
-| **Integração Full Stack**        | Consumo estruturado da API C# (COO) ou mock API durante o desenvolvimento.                      |
-| **Componentização Reutilizável** | Charts, cards, tabelas, loaders e componentes orientados ao domínio do produto.                 |
-
----
-
-## Como Executar
-
-Instalar dependências:
-
+**1. Instalar dependências**
 ```bash
 npm install
 ```
 
-Rodar o ambiente de desenvolvimento:
-
+**2. Rodar em desenvolvimento**
 ```bash
 npm run dev
 ```
 
-Acessar:
-
-```
-http://localhost:3000
-```
-
-Build para produção:
-
-```bash
-npm run build
-npm start
-```
+Acesse: http://localhost:3000 — sem necessidade de servidor externo.
 
 ---
 
-## Por que este Projeto é Importante para o Meu Portfólio?
+## Deploy na Vercel (1 clique)
 
-Ele demonstra **exatamente como trabalho ao criar produtos digitais reais**:
+O projeto está pronto para Vercel — **nenhuma variável de ambiente necessária** para o portfólio com mock data.
 
-### Pensamento Estratégico
+1. Suba o código no GitHub
+2. Acesse [vercel.com](https://vercel.com) → **Add New Project**
+3. Selecione o repositório → **Deploy**
 
-Tradução de requisitos complexos em dashboards simples e inteligentes.
+Pronto. A Vercel detecta Next.js automaticamente e o build funciona sem configuração adicional.
 
-### Performance como prioridade
+### Integrando a API .NET C# no futuro
 
-Forte foco em **Core Web Vitals** e **fluidez de navegação**.
-
-### Qualidade de Código
-
-Arquitetura modular, escalável, documentada e fortemente tipada.
-
-### UX/UI Profissional
-
-Experiência consistente, responsiva, moderna e orientada ao usuário.
-
-### Visão de Produto
-
-O projeto demonstra minha capacidade completa:
-**Design → Arquitetura → Front-end → Integração com API → Performance → Entrega.**
+Quando a API real estiver disponível, basta editar `src/core/services/api.ts` substituindo as chamadas diretas ao módulo por `fetch` apontando para sua API:
 
 ---
 
-UPM é mais do que apenas um dashboard — é uma demonstração prática de como transformo boas ideias em produtos digitais reais, performáticos e prontos para o mercado.
+## Páginas
+
+| Rota | Descrição |
+|---|---|
+| `/` | Visão geral — KPIs, gráficos, projetos recentes, utilização do time |
+| `/projects` | Portfólio completo de projetos com status, progresso e orçamento |
+| `/metrics` | Desempenho financeiro — receita, custos, margem, satisfação |
+| `/team` | Time e taxa de utilização por colaborador |
+
+---
+
+## Integração com API .NET C#
+
+Em desenvolvimento, o projeto usa **JSON Server** na porta `3001`. Para produção, basta alterar a variável `NEXT_PUBLIC_API_URL` no `.env.local`:
+
+```env
+NEXT_PUBLIC_API_URL=https://sua-api.com/api
+```
+
+A camada de serviço (`src/core/services/api.ts`) é o único ponto que precisa ser ajustado para consumir a API real.
+
+---
+
+## CI/CD
+
+GitHub Actions configurado com pipeline de **lint + typecheck + build** em cada push para `main` e `develop`.
+
+---
+
+## Design Decisions
+
+- **Dark theme** com paleta `zinc` + acento `violet` — elegante e legível
+- **Server Components** por padrão — dados carregados no servidor, zero client-side waterfall
+- **Tipagem forte** — todos os modelos de API tipados em `core/types`
+- **Camada de serviço isolada** — fácil troca de JSON Server para API real
+
+---
+
+*UPM é mais do que um dashboard — é uma demonstração prática de como boas ideias se transformam em produtos digitais reais, performáticos e prontos para o mercado.*
