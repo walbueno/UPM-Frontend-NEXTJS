@@ -8,7 +8,7 @@
 
 ## ✦ Preview
 
-![Dashboard UPM](https://upm-frontend-nextjs.vercel.app/)
+[https://upm-frontend-nextjs.vercel.app/](https://upm-frontend-nextjs.vercel.app/)
 
 ---
 
