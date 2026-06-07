@@ -34,13 +34,12 @@ Consultores e gestores precisam de visibilidade em tempo real sobre projetos, eq
 
 | Tecnologia | Uso |
 |---|---|
-| **Next.js 14** (App Router) | Framework principal — SSR, Server Components |
+| **Next.js 14** (App Router) | Framework — SSR, Server Components |
 | **TypeScript** | Tipagem forte em toda a base de código |
 | **Tailwind CSS** | Estilização utilitária |
-| **Recharts** | Visualizações e gráficos interativos |
-| **JSON Server** | API fake para desenvolvimento local |
-| **Lucide React** | Ícones consistentes |
-| **clsx + tailwind-merge** | Utilitários para classes condicionais |
+| **Recharts** | Gráficos e visualizações interativas |
+| **JSON Server** | Mock API para desenvolvimento local  |
+| **GitHub Actions** | CI: lint + typecheck + build |
 
 ---
 
@@ -105,18 +104,6 @@ NEXT_PUBLIC_API_URL=https://sua-api.com/api
 ```
 
 A camada `src/core/services/api.ts` é o único ponto que muda — sem refatoração de componentes.
-
----
-
-## Integração com API .NET C#
-
-Em desenvolvimento, o projeto usa **JSON Server** na porta `3001`. Para produção, basta alterar a variável `NEXT_PUBLIC_API_URL` no `.env.local`:
-
-```env
-NEXT_PUBLIC_API_URL=https://sua-api.com/api
-```
-
-A camada de serviço (`src/core/services/api.ts`) é o único ponto que precisa ser ajustado para consumir a API real.
 
 ---
 
