@@ -1,7 +1,7 @@
 # UPM — Unicorn Project Management
 ### Dashboard de Consultoria: Gestão de Projetos, Métricas e KPIs
 
-> De Design Thinking ao deploy automatizado — um painel de consultoria construído de ponta a ponta com Next.js 14, TypeScript e CI/CD.
+> De Design Thinking ao deploy automatizado. Um painel de consultoria construído de ponta a ponta com Next.js 14, TypeScript e CI/CD.
 
 [![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -103,7 +103,7 @@ O projeto usa JSON Server como mock. Para conectar a uma API real, edite apenas 
 NEXT_PUBLIC_API_URL=https://sua-api.com/api
 ```
 
-A camada `src/core/services/api.ts` é o único ponto que muda — sem refatoração de componentes.
+A camada `src/core/services/api.ts` é o único ponto que muda sem refatoração de componentes.
 
 ---
 
@@ -119,10 +119,10 @@ Nenhuma variável de ambiente necessária para o portfólio com mock data.
 
 ## Decisões de Design
 
-- **Dark theme** com paleta `zinc` + acento `violet` — elegante e legível
-- **Server Components** por padrão — dados carregados no servidor, zero client-side waterfall
-- **Tipagem forte** — todos os modelos de API tipados em `core/types`
-- **Camada de serviço isolada** — fácil troca de JSON Server para API real
+- **Dark theme** com paleta `zinc` + acento `violet` elegante e legível
+- **Server Components** por padrão dados carregados no servidor, zero client-side waterfall
+- **Tipagem forte** todos os modelos de API tipados em `core/types`
+- **Camada de serviço isolada** fácil troca de JSON Server para API real
 
 ---
 
