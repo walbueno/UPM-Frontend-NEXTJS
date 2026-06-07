@@ -1,16 +1,32 @@
-# Unicorn Project Management (UPM)
+# UPM — Unicorn Project Management
+### Dashboard de Consultoria: Gestão de Projetos, Métricas e KPIs
 
-**Dashboard de Consultoria em Next.js — Gestão de Projetos, Métricas e KPIs**
+> De Design Thinking ao deploy automatizado — um painel de consultoria construído de ponta a ponta com Next.js 14, TypeScript e CI/CD.
 
-> Projeto desenvolvido como **prova de conceito** e peça central do portfólio profissional, demonstrando atuação de ponta-a-ponta: desde **Design Thinking / UX/UI**, passando por **arquitetura front-end**, até **integração full stack** com uma API em .NET C# (em produção).
+[![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
+[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+
+🔗 **[Demo ao vivo → upm-frontend-nextjs.vercel.app](https://upm-frontend-nextjs.vercel.app)**
 
 ---
 
-## ✦ Demo ao Vivo
+## O Problema
 
-🔗 **[upm-frontend-nextjs.vercel.app](https://upm-frontend-nextjs.vercel.app)**
+Consultores e gestores precisam de visibilidade em tempo real sobre projetos, equipes e finanças. Ferramentas genéricas não entregam a inteligência visual necessária para decisões rápidas. O UPM centraliza tudo em um painel com arquitetura preparada para escalar.
 
-![Dashboard UPM](public/preview.png)
+---
+
+## Páginas
+
+| Rota | Descrição |
+|---|---|
+| `/` | Visão geral — KPIs, gráficos, projetos recentes, utilização do time |
+| `/projects` | Portfólio completo de projetos com status, progresso e orçamento |
+| `/metrics` | Desempenho financeiro — receita, custos, margem, satisfação |
+| `/team` | Time e taxa de utilização por colaborador |
 
 ---
 
@@ -38,24 +54,15 @@ UPM-Frontend-NEXTJS/
 │   │   ├── layout.tsx               # Layout raiz com Sidebar
 │   │   ├── page.tsx                 # Dashboard — Visão Geral
 │   │   └── (dashboard)/
-│   │       ├── projects/page.tsx    # Lista de Projetos
-│   │       ├── metrics/page.tsx     # Métricas & KPIs
-│   │       └── team/page.tsx        # Time e Utilização
+│   │       ├── projects/            # Lista de Projetos
+│   │       ├── metrics/             # Métricas & KPIs
+│   │       └── team/                # Time e Utilização
 │   │
 │   ├── components/
 │   │   ├── ui/                      # Design System base
-│   │   │   ├── Badge.tsx
-│   │   │   ├── Card.tsx
-│   │   │   ├── KpiCard.tsx
-│   │   │   ├── ProgressBar.tsx
-│   │   │   └── Sidebar.tsx
 │   │   ├── charts/                  # Componentes de visualização
-│   │   │   ├── RevenueChart.tsx
-│   │   │   └── SatisfactionChart.tsx
 │   │   ├── project/                 # Componentes de domínio
-│   │   │   └── ProjectCard.tsx
 │   │   └── feedback/                # Loaders e estados de UI
-│   │       └── Skeleton.tsx
 │   │
 │   └── core/
 │       ├── types/index.ts           # Tipagens globais (Project, KPI, Task...)
@@ -84,34 +91,20 @@ npm install
 npm run dev
 ```
 
-Acesse: http://localhost:3000 — sem necessidade de servidor externo.
+Acesse: `http://localhost:3000` — sem configuração adicional necessária.
 
 ---
 
-## Deploy na Vercel (1 clique)
+## Integrando com API Real (.NET C#)
 
-O projeto está pronto para Vercel — **nenhuma variável de ambiente necessária** para o portfólio com mock data.
+O projeto usa JSON Server como mock. Para conectar a uma API real, edite apenas uma variável:
 
-1. Suba o código no GitHub
-2. Acesse [vercel.com](https://vercel.com) → **Add New Project**
-3. Selecione o repositório → **Deploy**
+```env
+# .env.local
+NEXT_PUBLIC_API_URL=https://sua-api.com/api
+```
 
-Pronto. A Vercel detecta Next.js automaticamente e o build funciona sem configuração adicional.
-
-### Integrando a API .NET C# no futuro
-
-Quando a API real estiver disponível, basta editar `src/core/services/api.ts` substituindo as chamadas diretas ao módulo por `fetch` apontando para sua API:
-
----
-
-## Páginas
-
-| Rota | Descrição |
-|---|---|
-| `/` | Visão geral — KPIs, gráficos, projetos recentes, utilização do time |
-| `/projects` | Portfólio completo de projetos com status, progresso e orçamento |
-| `/metrics` | Desempenho financeiro — receita, custos, margem, satisfação |
-| `/team` | Time e taxa de utilização por colaborador |
+A camada `src/core/services/api.ts` é o único ponto que muda — sem refatoração de componentes.
 
 ---
 
@@ -127,13 +120,17 @@ A camada de serviço (`src/core/services/api.ts`) é o único ponto que precisa 
 
 ---
 
-## CI/CD
+## Deploy (1 clique na Vercel)
 
-GitHub Actions configurado com pipeline de **lint + typecheck + build** em cada push para `main` e `develop`.
+1. Faça o fork ou suba o código no GitHub
+2. Acesse [vercel.com](https://vercel.com) → **Add New Project**
+3. Selecione o repositório → **Deploy**
+
+Nenhuma variável de ambiente necessária para o portfólio com mock data.
 
 ---
 
-## Design Decisions
+## Decisões de Design
 
 - **Dark theme** com paleta `zinc` + acento `violet` — elegante e legível
 - **Server Components** por padrão — dados carregados no servidor, zero client-side waterfall
@@ -142,4 +139,6 @@ GitHub Actions configurado com pipeline de **lint + typecheck + build** em cada 
 
 ---
 
-*UPM é mais do que um dashboard — é uma demonstração prática de como boas ideias se transformam em produtos digitais reais, performáticos e prontos para o mercado.*
+## Contexto
+
+Este repositório faz parte do portfólio técnico de [William Bueno](https://williambueno.com.br) — Full Stack Developer & UX/UI Designer com +15 anos de experiência. Veja o case completo no portfólio.
